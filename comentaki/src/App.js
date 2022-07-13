@@ -1,25 +1,34 @@
 import React from 'react'
 import './App.css'
-
-import firebase from './firebase';
-
-
-const ref = firebase.database().ref('test')
-ref.on('value', snapshot => {
-  console.log(snapshot.val())
-})
+import { AuthProvider } from './auth'
+import  NewComment from './NewComment'
+import Comments from './Comments'
+import CreateUser from './CreateUser'
+import SignInUser from './SignInUser'
+import UserInfo from './UserInfo'
 
 
 
 
 
 function App() {
+  
+
   return (
+    <AuthProvider>
 
     <div >
-       
+    <NewComment />
+    <Comments /> 
+    <CreateUser />
+    <SignInUser />
+    <UserInfo />
+    
     </div>
+    </AuthProvider>
   )
+  
+  
 }
 
 export default App;
